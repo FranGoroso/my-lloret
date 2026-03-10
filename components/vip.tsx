@@ -1,0 +1,84 @@
+import { Phone, MessageCircle } from "lucide-react"
+
+const includes = [
+  "Acceso sin cola garantizado",
+  "Mesa reservada toda la noche",
+  "Botella de bienvenida incluida",
+  "Servicio de camarero exclusivo",
+  "Zona lounge shisha disponible",
+]
+
+export function Vip() {
+  return (
+    <section className="relative bg-primary overflow-hidden py-24 md:py-36">
+      {/* Diagonal shine sweep */}
+      <div
+        className="absolute top-0 bottom-0 w-[200px] skew-x-[-20deg] pointer-events-none animate-vip-shine opacity-20"
+        style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent)" }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, currentColor 0, currentColor 1px, transparent 0, transparent 50%)",
+          backgroundSize: "20px 20px",
+          color: "#000",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="grid md:grid-cols-2 gap-14 md:gap-28 items-center">
+
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/50 mb-8">
+              Experiencia exclusiva
+            </p>
+            <h2 className="font-display font-bold uppercase leading-[0.9] tracking-tight mb-8">
+              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-primary-foreground/60 font-semibold">Reserva tu</span>
+              <span className="block text-[clamp(3rem,7vw,5.5rem)] text-primary-foreground">Mesa VIP</span>
+            </h2>
+            <p className="text-sm text-primary-foreground/65 leading-[1.85] max-w-sm">
+              Porque algunas noches merecen algo más. Disfruta de My Lloret
+              sin límites, con todo el servicio que mereces.
+            </p>
+          </div>
+
+          <div>
+            <div className="border border-primary-foreground/20 p-8 mb-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary-foreground/50 mb-6">
+                Lo que incluye
+              </p>
+              <ul className="space-y-3.5">
+                {includes.map((item) => (
+                  <li key={item} className="flex items-center gap-4 text-sm text-primary-foreground/75">
+                    <span className="w-5 h-px bg-primary-foreground/40 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex gap-3">
+              {/* On violet bg: white fill + dark text */}
+              <a
+                href="tel:+34674807249"
+                className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md bg-white text-primary hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 transition-all"
+              >
+                <Phone className="w-3 h-3" />
+                Llamar
+              </a>
+              <a
+                href="https://wa.me/34674807249"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md border-2 border-white/50 text-white hover:border-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"
+              >
+                <MessageCircle className="w-3 h-3" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
