@@ -15,7 +15,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'My Lloret — Discoteca & Club Nocturno | Lloret de Mar',
+  title: 'Onada by Beach — Discoteca & Club Nocturno | Lloret de Mar',
   description: 'La discoteca de referencia en la Costa Brava. Cocktails de autor, shisha premium y los mejores DJs. Abierto Jueves a Domingo de 23:00 a 06:00.',
   icons: {
     icon: [

@@ -27,7 +27,7 @@ export function Vip() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-14 md:gap-28 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-28 items-center">
 
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-foreground/50 mb-8">
@@ -38,13 +38,13 @@ export function Vip() {
               <span className="block text-[clamp(3rem,7vw,5.5rem)] text-primary-foreground">Mesa VIP</span>
             </h2>
             <p className="text-sm text-primary-foreground/65 leading-[1.85] max-w-sm">
-              Porque algunas noches merecen algo más. Disfruta de My Lloret
+              Porque algunas noches merecen algo más. Disfruta de Onada by Beach
               sin límites, con todo el servicio que mereces.
             </p>
           </div>
 
           <div>
-            <div className="border border-primary-foreground/20 p-8 mb-5">
+            <div className="border border-primary-foreground/20 p-5 md:p-8 mb-5">
               <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary-foreground/50 mb-6">
                 Lo que incluye
               </p>
@@ -57,17 +57,17 @@ export function Vip() {
                 ))}
               </ul>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               {/* On violet bg: white fill + dark text */}
               <a
-                href="tel:+34674807249"
+                href="tel:+34670525431"
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md bg-white text-primary hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 transition-all"
               >
                 <Phone className="w-3 h-3" />
                 Llamar
               </a>
               <a
-                href="https://wa.me/34674807249"
+                href="https://wa.me/34670525431"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md border-2 border-white/50 text-white hover:border-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"

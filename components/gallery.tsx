@@ -75,7 +75,7 @@ export function Gallery() {
           </div>
 
           {/* Bottom right wide */}
-          <div className="col-span-2 md:col-span-7 relative aspect-[16/7] overflow-hidden group">
+          <div className="col-span-2 md:col-span-7 relative aspect-[16/9] md:aspect-[16/7] overflow-hidden group">
             <Image
               src={images[3].src}
               alt={images[3].alt}

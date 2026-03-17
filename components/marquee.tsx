@@ -1,5 +1,5 @@
 const items = [
-  "My Lloret",
+  "Onada by Beach",
   "Discoteca",
   "Lloret de Mar",
   "Cocktails de Autor",

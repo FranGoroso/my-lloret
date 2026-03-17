@@ -18,32 +18,32 @@ export function Contact() {
         <div className="grid md:grid-cols-2 gap-14 md:gap-20">
           <div className="space-y-10">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-3 flex items-center gap-2">
-                <Phone className="w-3 h-3" /> Teléfono de reservas
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
+                <Phone className="w-4 h-4" /> Teléfono de reservas
               </p>
               <a
-                href="tel:+34674807249"
-                className="font-display font-bold uppercase text-[clamp(2rem,5vw,3.2rem)] text-primary leading-none hover:text-primary/80 transition-colors tracking-tight"
+                href="tel:+34670525431"
+                className="font-display font-bold uppercase text-[clamp(2.2rem,5vw,3.6rem)] text-primary leading-none hover:text-primary/80 transition-colors tracking-tight"
               >
-                +34 674 80 72 49
+                +34 670 52 54 31
               </a>
-              <p className="text-xs text-muted-foreground mt-2">Llama o escríbenos, respondemos rápido</p>
+              <p className="text-sm text-muted-foreground mt-2">Llama o escríbenos, respondemos rápido</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-3 flex items-center gap-2">
-                  <MapPin className="w-3 h-3" /> Dirección
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
+                  <MapPin className="w-4 h-4" /> Dirección
                 </p>
-                <p className="text-sm text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   C/ Josep de Togores, 7<br />Lloret de Mar, Girona
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-3 flex items-center gap-2">
-                  <Clock className="w-3 h-3" /> Horario
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
+                  <Clock className="w-4 h-4" /> Horario
                 </p>
-                <p className="text-sm text-foreground leading-relaxed">
+                <p className="text-base text-foreground leading-relaxed">
                   Jueves — Domingo<br />23:00 — 06:00
                 </p>
               </div>
@@ -52,18 +52,18 @@ export function Contact() {
             <div className="h-px bg-border" />
 
             <div className="flex gap-3">
-              <a href="tel:+34674807249" className="btn-disco flex-1">
+              <a href="tel:+34670525431" className="btn-disco flex-1">
                 <Phone className="w-3 h-3" />
                 Llamar
               </a>
-              <a href="https://wa.me/34674807249" target="_blank" rel="noopener noreferrer" className="btn-disco-outline flex-1">
+              <a href="https://wa.me/34670525431" target="_blank" rel="noopener noreferrer" className="btn-disco-outline flex-1">
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
               </a>
             </div>
           </div>
 
-          <div className="relative min-h-[360px] md:min-h-0 overflow-hidden border border-border">
+          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-0 overflow-hidden border border-border">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.5!2d2.8447!3d41.6994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1a7c0f8a8d0d%3A0x0!2sC%2F%20Josep%20de%20Togores%2C%207%2C%20Lloret%20de%20Mar!5e0!3m2!1ses!2ses!4v1"
               width="100%"

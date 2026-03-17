@@ -4,7 +4,7 @@ export function About() {
   return (
     <section id="sobre-nosotros" className="bg-card py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-28 items-start">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-28 items-start">
 
           {/* Left */}
           <Reveal><div>
@@ -17,15 +17,15 @@ export function About() {
               <span className="block text-[clamp(2.8rem,6vw,4.8rem)] text-primary">cobra vida.</span>
             </h2>
 
-            <div className="mt-12 pt-8 border-t border-border grid grid-cols-3 gap-4">
+            <div className="mt-10 md:mt-12 pt-8 border-t border-border grid grid-cols-3 gap-3 md:gap-4">
               {[
                 { num: "4", label: "Noches\na la semana" },
                 { num: "2", label: "Salas &\nambientes" },
                 { num: "1ª", label: "Disco en\nLloret de Mar" },
               ].map((s) => (
                 <div key={s.label}>
-                  <p className="font-display font-bold text-[2.6rem] text-primary leading-none mb-1.5">{s.num}</p>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest whitespace-pre-line leading-relaxed">{s.label}</p>
+                  <p className="font-display font-bold text-[1.9rem] md:text-[2.6rem] text-primary leading-none mb-1.5">{s.num}</p>
+                  <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest whitespace-pre-line leading-relaxed">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -34,7 +34,7 @@ export function About() {
           {/* Right */}
           <Reveal delay={150}><div className="md:pt-20 space-y-6">
             <p className="text-lg text-foreground/85 leading-[1.75]">
-              En el corazón de Lloret de Mar, My Lloret es más que una discoteca.
+              En el corazón de Lloret de Mar, Onada by Beach es más que una discoteca.
               Es el lugar donde cada noche se convierte en un recuerdo que no se olvida.
             </p>
             <p className="text-sm text-muted-foreground leading-[1.85]">

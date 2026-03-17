@@ -33,7 +33,7 @@ export function Header() {
       {/* Brand line — animated gradient */}
       <div
         className="fixed top-0 left-0 right-0 z-50 h-[3px] animate-gradient-x"
-        style={{ background: "linear-gradient(90deg, oklch(0.63 0.34 280), oklch(0.57 0.31 312), oklch(0.45 0.28 260), oklch(0.63 0.34 280))" }}
+        style={{ background: "linear-gradient(90deg, oklch(0.68 0.18 215), oklch(0.80 0.17 80), oklch(0.45 0.12 230), oklch(0.68 0.18 215))" }}
       />
 
       {/* ─── Header bar ─────────────────────────────── */}
@@ -55,11 +55,11 @@ export function Header() {
               className="flex items-center leading-none z-50 relative"
               onClick={() => setMenuOpen(false)}
             >
-              <span className={`font-display font-extrabold text-[1.55rem] tracking-tighter transition-colors duration-300 ${menuOpen ? "text-foreground" : "text-foreground"}`}>
-                MY
+              <span className={`font-display font-extrabold text-[1.25rem] sm:text-[1.55rem] tracking-tighter transition-colors duration-300 ${menuOpen ? "text-foreground" : "text-foreground"}`}>
+                ONADA
               </span>
-              <span className="font-display font-extrabold text-[1.55rem] tracking-tighter ml-[0.1em] text-primary animate-neon-pulse">
-                LLORET
+              <span className="font-display font-extrabold text-[1.25rem] sm:text-[1.55rem] tracking-tighter ml-[0.2em] text-primary animate-neon-pulse">
+                BY BEACH
               </span>
             </Link>
 
@@ -68,7 +68,7 @@ export function Header() {
             <div className="flex items-center gap-4 z-50 relative">
               {/* Reservar — desktop, only when menu closed */}
               {!menuOpen && (
-                <a href="tel:+34674807249" className="btn-disco hidden md:inline-flex !py-2.5 !px-5">
+                <a href="tel:+34670525431" className="btn-disco hidden md:inline-flex !py-2.5 !px-5">
                   <Phone className="w-3 h-3" />
                   Reservar
                 </a>
@@ -114,7 +114,7 @@ export function Header() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setMenuOpen(false)}
-                      className="group flex items-baseline gap-4 md:gap-6 py-3 md:py-4 border-b border-border/30 hover:border-primary/40 transition-all duration-200 animate-nav-in"
+                      className="group flex items-baseline gap-3 md:gap-6 py-3 md:py-4 border-b border-border/30 hover:border-primary/40 transition-all duration-200 animate-nav-in"
                       style={{ animationDelay: `${i * 0.06 + 0.05}s` }}
                     >
                       {/* Number */}
@@ -123,7 +123,7 @@ export function Header() {
                       </span>
 
                       {/* Label */}
-                      <span className="font-display font-extrabold uppercase text-[clamp(2.4rem,7vw,5.5rem)] leading-none tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                      <span className="font-display font-extrabold uppercase text-[clamp(1.9rem,7vw,5.5rem)] leading-none tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
                         {link.label}
                       </span>
 
@@ -148,10 +148,10 @@ export function Header() {
                       Reservas
                     </p>
                     <a
-                      href="tel:+34674807249"
+                      href="tel:+34670525431"
                       className="font-display font-extrabold text-xl text-primary hover:text-primary/80 transition-colors tracking-tight block"
                     >
-                      +34 674 80 72 49
+                      +34 670 52 54 31
                     </a>
                   </div>
 
@@ -184,7 +184,7 @@ export function Header() {
                     </a>
                   </div>
 
-                  <a href="tel:+34674807249" className="btn-disco mt-2">
+                  <a href="tel:+34670525431" className="btn-disco mt-2">
                     <Phone className="w-3 h-3" />
                     Reservar Mesa
                   </a>
@@ -200,7 +200,7 @@ export function Header() {
           >
             <div className="mx-auto max-w-7xl px-6 lg:px-12 py-4 flex items-center justify-between">
               <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
-                © {new Date().getFullYear()} My Lloret
+                © {new Date().getFullYear()} Onada by Beach
               </p>
               <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />

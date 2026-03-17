@@ -7,6 +7,7 @@ import { Events } from "@/components/events"
 import { Gallery } from "@/components/gallery"
 import { Vip } from "@/components/vip"
 import { Contact } from "@/components/contact"
+import { Jobs } from "@/components/jobs"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <Gallery />
       <Vip />
       <Contact />
+      <Jobs />
       <Footer />
     </main>
   )

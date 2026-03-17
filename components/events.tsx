@@ -24,7 +24,7 @@ export function Events() {
               <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">Eventos</span>
             </h2>
           </div>
-          <a href="tel:+34674807249" className="btn-disco hidden md:inline-flex self-end">
+          <a href="tel:+34670525431" className="btn-disco hidden md:inline-flex self-end">
             <Phone className="w-3 h-3" />
             Consultar entradas
           </a>
@@ -34,17 +34,17 @@ export function Events() {
           {events.map((event, i) => (
             <div
               key={i}
-              className={`group flex items-center gap-5 md:gap-10 py-5 md:py-6 hover:bg-secondary/40 px-3 -mx-3 transition-colors ${
+              className={`group flex items-center gap-3 md:gap-10 py-4 md:py-6 hover:bg-secondary/40 px-3 -mx-3 transition-colors ${
                 event.featured ? "bg-primary/5" : ""
               }`}
             >
               {/* Date */}
-              <div className="text-center w-12 md:w-16 shrink-0">
-                <p className="font-display font-bold text-[2rem] md:text-[2.4rem] leading-none text-foreground tracking-tight">
+              <div className="text-center w-10 md:w-16 shrink-0">
+                <p className="font-display font-bold text-[1.6rem] md:text-[2.4rem] leading-none text-foreground tracking-tight">
                   {event.day}
                 </p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-muted-foreground mt-0.5">{event.month}</p>
-                <p className="text-[9px] font-medium uppercase tracking-widest text-primary/60">{event.weekday}</p>
+                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-muted-foreground mt-0.5">{event.month}</p>
+                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-primary/60">{event.weekday}</p>
               </div>
 
               <div className="w-px h-10 bg-border shrink-0" />
@@ -52,7 +52,7 @@ export function Events() {
               {/* Info */}
               <div className="flex-1 min-w-0">
                 <div className="flex flex-wrap items-center gap-2.5 mb-1">
-                  <h3 className={`font-display font-bold uppercase text-lg md:text-xl leading-none tracking-tight transition-colors ${
+                  <h3 className={`font-display font-bold uppercase text-base md:text-xl leading-none tracking-tight transition-colors ${
                     event.featured ? "text-primary" : "text-foreground group-hover:text-primary"
                   }`}>
                     {event.title}
@@ -74,7 +74,7 @@ export function Events() {
               </span>
 
               <a
-                href="tel:+34674807249"
+                href="tel:+34670525431"
                 className={`shrink-0 ${event.featured ? "btn-disco-sm" : "btn-disco-sm-outline"}`}
               >
                 Reservar
@@ -85,7 +85,7 @@ export function Events() {
 
         <div className="mt-8 flex items-center justify-between">
           <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Programación sujeta a cambios</p>
-          <a href="tel:+34674807249" className="btn-disco md:hidden">
+          <a href="tel:+34670525431" className="btn-disco md:hidden">
             <Phone className="w-3 h-3" />
             Consultar
           </a>
