@@ -1,5 +1,6 @@
 import { Instagram, Facebook } from "lucide-react"
 import Link from "next/link"
+import { BUSINESS } from "@/constants/business"
 
 export function Footer() {
   return (
@@ -13,7 +14,7 @@ export function Footer() {
               <span className="font-display font-extrabold text-2xl tracking-tight text-primary ml-2">BY BEACH</span>
             </Link>
             <p className="text-xs text-muted-foreground leading-relaxed sm:max-w-[18rem] mt-3">
-              Discoteca & Club Nocturno en Lloret de Mar.<br />
+              Discoteca & Club Nocturno en {BUSINESS.city}.<br />
               Cocktails · Shisha · Music
             </p>
           </div>
@@ -24,11 +25,11 @@ export function Footer() {
             </p>
             <nav className="grid grid-cols-2 gap-x-4 gap-y-2.5">
               {[
-                { href: "#inicio", label: "Inicio" },
+                { href: "#inicio",    label: "Inicio" },
                 { href: "#servicios", label: "Servicios" },
-                { href: "#eventos", label: "Eventos" },
-                { href: "#galeria", label: "Galería" },
-                { href: "#contacto", label: "Contacto" },
+                { href: "#eventos",   label: "Eventos" },
+                { href: "#galeria",   label: "Galería" },
+                { href: "#contacto",  label: "Contacto" },
               ].map((link) => (
                 <Link
                   key={link.href}
@@ -46,17 +47,17 @@ export function Footer() {
               Contacto
             </p>
             <div className="space-y-2.5 text-xs text-muted-foreground">
-              <a href="tel:+34670525431" className="block hover:text-primary transition-colors">
-                +34 670 52 54 31
+              <a href={`tel:${BUSINESS.phone}`} className="block hover:text-primary transition-colors">
+                {BUSINESS.phoneDisplay}
               </a>
-              <p>C/ Josep de Togores, 7<br />Lloret de Mar, Girona</p>
-              <p className="pt-1">Jue — Dom · 23:00 — 06:00</p>
+              <p>{BUSINESS.address}<br />{BUSINESS.city}, {BUSINESS.region}</p>
+              <p className="pt-1">{BUSINESS.hours.days} · {BUSINESS.hours.opens} — {BUSINESS.hours.closes}</p>
             </div>
             <div className="flex items-center gap-3 mt-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+              <a href={BUSINESS.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+              <a href={BUSINESS.social.facebook} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
                 <Facebook className="w-4 h-4" />
               </a>
             </div>
@@ -65,7 +66,7 @@ export function Footer() {
 
         <div className="border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
-            © {new Date().getFullYear()} Onada by Beach · Todos los derechos reservados
+            © {new Date().getFullYear()} {BUSINESS.name} · Todos los derechos reservados
           </p>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />

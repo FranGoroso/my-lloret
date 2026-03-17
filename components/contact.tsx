@@ -1,4 +1,5 @@
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react"
+import { BUSINESS } from "@/constants/business"
 
 export function Contact() {
   return (
@@ -22,10 +23,10 @@ export function Contact() {
                 <Phone className="w-4 h-4" /> Teléfono de reservas
               </p>
               <a
-                href="tel:+34670525431"
+                href={`tel:${BUSINESS.phone}`}
                 className="font-display font-bold uppercase text-[clamp(2.2rem,5vw,3.6rem)] text-primary leading-none hover:text-primary/80 transition-colors tracking-tight"
               >
-                +34 670 52 54 31
+                {BUSINESS.phoneDisplay}
               </a>
               <p className="text-sm text-muted-foreground mt-2">Llama o escríbenos, respondemos rápido</p>
             </div>
@@ -36,7 +37,7 @@ export function Contact() {
                   <MapPin className="w-4 h-4" /> Dirección
                 </p>
                 <p className="text-base text-foreground leading-relaxed">
-                  C/ Josep de Togores, 7<br />Lloret de Mar, Girona
+                  {BUSINESS.address}<br />{BUSINESS.city}, {BUSINESS.region}
                 </p>
               </div>
               <div>
@@ -44,7 +45,7 @@ export function Contact() {
                   <Clock className="w-4 h-4" /> Horario
                 </p>
                 <p className="text-base text-foreground leading-relaxed">
-                  Jueves — Domingo<br />23:00 — 06:00
+                  Jueves — Domingo<br />{BUSINESS.hours.opens} — {BUSINESS.hours.closes}
                 </p>
               </div>
             </div>
@@ -52,11 +53,11 @@ export function Contact() {
             <div className="h-px bg-border" />
 
             <div className="flex gap-3">
-              <a href="tel:+34670525431" className="btn-disco flex-1">
+              <a href={`tel:${BUSINESS.phone}`} className="btn-disco flex-1">
                 <Phone className="w-3 h-3" />
                 Llamar
               </a>
-              <a href="https://wa.me/34670525431" target="_blank" rel="noopener noreferrer" className="btn-disco-outline flex-1">
+              <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-disco-outline flex-1">
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
               </a>
@@ -72,7 +73,7 @@ export function Contact() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="My Lloret — Ubicación"
+              title={`${BUSINESS.name} — Ubicación en ${BUSINESS.city}`}
               className="absolute inset-0 h-full"
             />
           </div>

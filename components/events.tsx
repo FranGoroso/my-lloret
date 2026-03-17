@@ -1,13 +1,7 @@
 import { Phone } from "lucide-react"
 import { Reveal } from "@/components/reveal"
-
-const events = [
-  { weekday: "Vie", day: "14", month: "Mar", title: "Deep House Night", dj: "DJ Martín & Guests", genre: "House", featured: true },
-  { weekday: "Sáb", day: "15", month: "Mar", title: "Urban & RnB", dj: "DJ Kaos", genre: "Urban", featured: false },
-  { weekday: "Jue", day: "20", month: "Mar", title: "Latin Vibes", dj: "Salsa Brothers", genre: "Latin", featured: false },
-  { weekday: "Vie", day: "21", month: "Mar", title: "Electronic Night", dj: "Resident DJs", genre: "Techno", featured: false },
-  { weekday: "Sáb", day: "22", month: "Mar", title: "Noche 90s", dj: "DJ Flash", genre: "Pop", featured: false },
-]
+import { BUSINESS } from "@/constants/business"
+import { events } from "@/data/events"
 
 export function Events() {
   return (
@@ -24,7 +18,7 @@ export function Events() {
               <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">Eventos</span>
             </h2>
           </div>
-          <a href="tel:+34670525431" className="btn-disco hidden md:inline-flex self-end">
+          <a href={`tel:${BUSINESS.phone}`} className="btn-disco hidden md:inline-flex self-end">
             <Phone className="w-3 h-3" />
             Consultar entradas
           </a>
@@ -65,7 +59,7 @@ export function Events() {
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  {event.dj} · {event.genre} · Apertura 23:00
+                  {event.dj} · {event.genre} · Apertura {BUSINESS.hours.opens}
                 </p>
               </div>
 
@@ -74,7 +68,7 @@ export function Events() {
               </span>
 
               <a
-                href="tel:+34670525431"
+                href={`tel:${BUSINESS.phone}`}
                 className={`shrink-0 ${event.featured ? "btn-disco-sm" : "btn-disco-sm-outline"}`}
               >
                 Reservar
@@ -85,7 +79,7 @@ export function Events() {
 
         <div className="mt-8 flex items-center justify-between">
           <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Programación sujeta a cambios</p>
-          <a href="tel:+34670525431" className="btn-disco md:hidden">
+          <a href={`tel:${BUSINESS.phone}`} className="btn-disco md:hidden">
             <Phone className="w-3 h-3" />
             Consultar
           </a>

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Phone } from "lucide-react"
 import { HeroOrbs } from "@/components/hero-orbs"
+import { BUSINESS } from "@/constants/business"
 
 export function Hero() {
   return (
@@ -9,8 +10,9 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.jpg"
-          alt="My Lloret — Discoteca Lloret de Mar"
+          alt={`${BUSINESS.name} — Discoteca Lloret de Mar`}
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
         />
@@ -42,7 +44,7 @@ export function Hero() {
         </h1>
 
         <p className="font-display font-semibold text-[clamp(1rem,2.5vw,1.5rem)] text-foreground/70 italic tracking-wide mb-8">
-          Vuelve a donde has sido feliz
+          {BUSINESS.slogan}
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
@@ -51,7 +53,7 @@ export function Hero() {
             Cocktails de autor, shisha premium y los mejores DJs de la escena.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href="tel:+34670525431" className="btn-disco">
+            <a href={`tel:${BUSINESS.phone}`} className="btn-disco">
               <Phone className="w-3 h-3" />
               Reservar Mesa
             </a>
@@ -67,9 +69,9 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="flex flex-wrap items-center gap-4 md:gap-12 py-3 md:py-4">
             {[
-              ["Horario", "Jue — Dom · 23:00 — 06:00"],
-              ["Dirección", "C/ Josep de Togores, 7"],
-              ["Teléfono", "+34 670 52 54 31"],
+              ["Horario",   BUSINESS.hours.display],
+              ["Dirección", BUSINESS.address],
+              ["Teléfono",  BUSINESS.phoneDisplay],
             ].map(([label, value]) => (
               <div key={label} className="flex items-center gap-2 md:gap-3">
                 <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary/80 font-semibold shrink-0">{label}</span>

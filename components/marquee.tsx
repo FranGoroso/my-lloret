@@ -1,5 +1,7 @@
+import { BUSINESS } from "@/constants/business"
+
 const items = [
-  "Onada by Beach",
+  BUSINESS.name,
   "Discoteca",
   "Lloret de Mar",
   "Cocktails de Autor",

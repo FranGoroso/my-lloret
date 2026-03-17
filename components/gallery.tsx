@@ -38,6 +38,7 @@ export function Gallery() {
               src={images[0].src}
               alt={images[0].alt}
               fill
+              sizes="(max-width: 768px) 100vw, 42vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -52,6 +53,7 @@ export function Gallery() {
               src={images[1].src}
               alt={images[1].alt}
               fill
+              sizes="(max-width: 768px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -66,6 +68,7 @@ export function Gallery() {
               src={images[2].src}
               alt={images[2].alt}
               fill
+              sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -80,6 +83,7 @@ export function Gallery() {
               src={images[3].src}
               alt={images[3].alt}
               fill
+              sizes="(max-width: 768px) 100vw, 58vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

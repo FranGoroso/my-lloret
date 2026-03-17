@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(echo exit: $?:*)",
-      "WebFetch(domain:www.sassysocialclub.com)"
+      "WebFetch(domain:www.sassysocialclub.com)",
+      "Bash(rm:*)"
     ]
   }
 }

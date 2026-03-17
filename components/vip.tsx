@@ -1,4 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react"
+import { BUSINESS } from "@/constants/business"
 
 const includes = [
   "Acceso sin cola garantizado",
@@ -38,8 +39,8 @@ export function Vip() {
               <span className="block text-[clamp(3rem,7vw,5.5rem)] text-primary-foreground">Mesa VIP</span>
             </h2>
             <p className="text-sm text-primary-foreground/65 leading-[1.85] max-w-sm">
-              Porque algunas noches merecen algo más. Disfruta de Onada by Beach
-              sin límites, con todo el servicio que mereces.
+              Porque algunas noches merecen algo más. Disfruta de {BUSINESS.name}
+              {" "}sin límites, con todo el servicio que mereces.
             </p>
           </div>
 
@@ -58,16 +59,15 @@ export function Vip() {
               </ul>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              {/* On violet bg: white fill + dark text */}
               <a
-                href="tel:+34670525431"
+                href={`tel:${BUSINESS.phone}`}
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md bg-white text-primary hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 transition-all"
               >
                 <Phone className="w-3 h-3" />
                 Llamar
               </a>
               <a
-                href="https://wa.me/34670525431"
+                href={BUSINESS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md border-2 border-white/50 text-white hover:border-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"

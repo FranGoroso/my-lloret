@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react"
 import { Reveal } from "@/components/reveal"
+import { BUSINESS } from "@/constants/business"
 
 export function Jobs() {
   return (
@@ -10,7 +11,7 @@ export function Jobs() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 60% at 50% 50%, oklch(0.65 0.16 220 / 0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse 70% 60% at 50% 50%, oklch(0.68 0.18 215 / 0.08) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -37,20 +38,20 @@ export function Jobs() {
             {/* Right */}
             <div className="space-y-6">
               <p className="text-base text-muted-foreground leading-relaxed">
-                En Onada by Beach buscamos personas apasionadas por la hostelería,
+                En {BUSINESS.name} buscamos personas apasionadas por la hostelería,
                 la música y los buenos ambientes. Si quieres formar parte de uno de
                 los mejores equipos de la Costa Brava, escríbenos o llámanos.
               </p>
 
               <div className="h-px bg-border" />
 
-              <div className="flex flex-col xs:flex-row gap-3">
-                <a href="tel:+34670525431" className="btn-disco flex-1">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href={`tel:${BUSINESS.phone}`} className="btn-disco flex-1">
                   <Phone className="w-3 h-3" />
                   Llámanos
                 </a>
                 <a
-                  href="https://wa.me/34670525431?text=Hola%2C%20me%20interesa%20trabajar%20en%20Onada%20by%20Beach"
+                  href={`${BUSINESS.whatsapp}?text=Hola%2C%20me%20interesa%20trabajar%20en%20${encodeURIComponent(BUSINESS.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-disco-outline flex-1"
