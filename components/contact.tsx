@@ -1,5 +1,6 @@
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react"
 import { BUSINESS } from "@/constants/business"
+import { ContactForm } from "@/components/contact-form"
 
 export function Contact() {
   return (
@@ -61,6 +62,13 @@ export function Contact() {
                 <MessageCircle className="w-3 h-3" />
                 WhatsApp
               </a>
+            </div>
+
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-6">
+                O escríbenos
+              </p>
+              <ContactForm />
             </div>
           </div>
 

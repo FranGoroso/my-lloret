@@ -2,6 +2,7 @@ import { Instagram, Facebook } from "lucide-react"
 import Link from "next/link"
 import { BUSINESS } from "@/constants/business"
 
+
 export function Footer() {
   return (
     <footer className="border-t border-border">
@@ -68,6 +69,9 @@ export function Footer() {
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
             © {new Date().getFullYear()} {BUSINESS.name} · Todos los derechos reservados
           </p>
+          <Link href="/privacidad" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
+            Privacidad & Cookies
+          </Link>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
             Abierto esta semana

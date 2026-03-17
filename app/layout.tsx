@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Syne } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { CookieBanner } from '@/components/cookie-banner'
 import { BUSINESS } from '@/constants/business'
 import './globals.css'
 
@@ -111,11 +112,19 @@ export default function RootLayout({
   return (
     <html lang="es" className={syne.variable}>
       <body className="font-sans antialiased">
+        {/* Skip to content — accesibilidad */}
+        <a
+          href="#inicio"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:text-xs focus:font-bold focus:uppercase focus:tracking-widest focus:rounded"
+        >
+          Saltar al contenido
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>
