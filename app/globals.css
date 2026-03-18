@@ -106,10 +106,9 @@
   .btn-disco::after {
     content: '';
     position: absolute;
-    top: -50%; left: -75%;
+    top: -50%; left: 0;
     width: 50%; height: 200%;
     background: linear-gradient(to right, transparent, rgba(255,255,255,0.35), transparent);
-    transform: skewX(-20deg);
     animation: btn-shimmer 3.5s ease infinite;
   }
   .btn-disco:hover {
@@ -172,10 +171,9 @@
   .btn-disco-sm::after {
     content: '';
     position: absolute;
-    top: -50%; left: -75%;
+    top: -50%; left: 0;
     width: 50%; height: 200%;
     background: linear-gradient(to right, transparent, rgba(255,255,255,0.30), transparent);
-    transform: skewX(-20deg);
     animation: btn-shimmer 3.5s ease infinite;
   }
   .btn-disco-sm:hover {
@@ -255,10 +253,10 @@
     to   { opacity: 1; }
   }
 
-  /* Button shimmer sweep */
+  /* Button shimmer sweep — transform only (GPU composited) */
   @keyframes btn-shimmer {
-    0%       { left: -75%; }
-    40%, 100% { left: 130%; }
+    0%        { transform: translateX(-150%) skewX(-20deg); }
+    40%, 100% { transform: translateX(260%) skewX(-20deg); }
   }
 
   /* Button glow pulse */
@@ -335,12 +333,48 @@
     50%      { transform: scale(1.05); box-shadow: 0 0 0 8px oklch(0.65 0.16 220 / 0); }
   }
 
-  /* VIP diagonal shine */
+  /* VIP diagonal shine — transform only (GPU composited) */
   .animate-vip-shine {
     animation: vip-shine 5s ease infinite;
+    will-change: transform;
   }
   @keyframes vip-shine {
-    0%       { left: -100%; }
-    40%, 100% { left: 200%; }
+    0%        { transform: translateX(-400px) skewX(-20deg); }
+    40%, 100% { transform: translateX(2800px) skewX(-20deg); }
+  }
+
+  /* Glitch — infrequent, transform + opacity only */
+  .animate-glitch {
+    animation: glitch 9s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); opacity: 1; }
+    91%  { transform: translate(-5px, 1px) skewX(-3deg); opacity: 0.85; }
+    92%  { transform: translate(5px, -1px) skewX(3deg); opacity: 0.9; }
+    93%  { transform: translate(-3px, 0); opacity: 0.95; }
+    93.5%{ transform: translate(0); opacity: 1; }
+    95%  { transform: translate(3px, -1px) skewX(-1deg); opacity: 0.88; }
+    96%  { transform: translate(0); opacity: 1; }
+  }
+
+  /* Ring pulse — for CTA button halos */
+  .animate-ring-out {
+    animation: ring-out 2.2s ease-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes ring-out {
+    0%   { transform: scale(1);   opacity: 0.5; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+}
+
+/* ── Accesibilidad: respeta la preferencia del sistema ── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
