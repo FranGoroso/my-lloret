@@ -1,9 +1,22 @@
+import Image from "next/image"
 import { Reveal } from "@/components/reveal"
 
 export function About() {
   return (
-    <section id="sobre-nosotros" className="bg-card py-24 md:py-36">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section id="sobre-nosotros" className="relative bg-card py-24 md:py-36 overflow-hidden">
+      {/* Subtle background image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/hero-bg.jpeg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[50%_60%] brightness-[0.18] saturate-[0.6]"
+        />
+        <div className="absolute inset-0 bg-card/70" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid md:grid-cols-2 gap-10 md:gap-28 items-start">
 
           {/* Left */}
@@ -23,8 +36,8 @@ export function About() {
                 { num: "2", label: "Salas &\nambientes" },
                 { num: "1ª", label: "Disco en\nLloret de Mar" },
               ].map((s) => (
-                <div key={s.label}>
-                  <p className="font-display font-bold text-[1.9rem] md:text-[2.6rem] text-primary leading-none mb-1.5">{s.num}</p>
+                <div key={s.label} className="group">
+                  <p className="font-display font-bold text-[2.2rem] md:text-[3rem] text-primary leading-none mb-2 group-hover:scale-105 transition-transform origin-left">{s.num}</p>
                   <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest whitespace-pre-line leading-relaxed">{s.label}</p>
                 </div>
               ))}
