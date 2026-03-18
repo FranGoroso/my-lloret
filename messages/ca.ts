@@ -7,6 +7,7 @@ export const ca = {
   },
   hero: {
     location: 'Lloret de Mar · Costa Brava',
+    slogan: 'Torna on has estat feliç',
     description: 'La discoteca de referència a la Costa Brava. Còctels d\'autor, shisha premium i els millors DJs de l\'escena.',
     bookTable: 'Reservar Taula', seeEvents: 'Veure Esdeveniments',
     hours: 'Horari', address: 'Adreça', phone: 'Telèfon',

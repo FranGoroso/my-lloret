@@ -7,6 +7,7 @@ export const en = {
   },
   hero: {
     location: 'Lloret de Mar · Costa Brava',
+    slogan: 'Come back to where you were happy',
     description: 'The reference nightclub on the Costa Brava. Signature cocktails, premium shisha and the best DJs on the scene.',
     bookTable: 'Book a Table', seeEvents: 'See Events',
     hours: 'Hours', address: 'Address', phone: 'Phone',

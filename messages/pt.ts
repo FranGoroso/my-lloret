@@ -7,6 +7,7 @@ export const pt = {
   },
   hero: {
     location: 'Lloret de Mar · Costa Brava',
+    slogan: 'Volte onde você foi feliz',
     description: 'A discoteca de referência na Costa Brava. Coquetéis autorais, shisha premium e os melhores DJs da cena.',
     bookTable: 'Reservar Mesa', seeEvents: 'Ver Eventos',
     hours: 'Horário', address: 'Endereço', phone: 'Telefone',

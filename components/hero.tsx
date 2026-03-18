@@ -61,7 +61,7 @@ export function Hero() {
         </h1>
 
         <p className="font-display font-semibold text-[clamp(0.95rem,2vw,1.35rem)] text-foreground/70 italic tracking-wide mb-7">
-          {BUSINESS.slogan}
+          {t.hero.slogan}
         </p>
 
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-14">
