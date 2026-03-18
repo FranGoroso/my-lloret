@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal"
+import { CountUp } from "@/components/count-up"
 
 export function About() {
   return (
@@ -37,12 +38,14 @@ export function About() {
 
             <div className="mt-10 md:mt-12 pt-8 border-t border-border grid grid-cols-3 gap-3 md:gap-4">
               {[
-                { num: "4", label: "Noches\na la semana" },
-                { num: "2", label: "Salas &\nambientes" },
-                { num: "1ª", label: "Disco en\nLloret de Mar" },
+                { to: 4,  suffix: "",  label: "Noches\na la semana" },
+                { to: 2,  suffix: "",  label: "Salas &\nambientes" },
+                { to: 1,  suffix: "ª", label: "Disco en\nLloret de Mar" },
               ].map((s) => (
                 <div key={s.label} className="group">
-                  <p className="font-display font-bold text-[2.2rem] md:text-[3rem] text-primary leading-none mb-2 group-hover:scale-105 transition-transform origin-left">{s.num}</p>
+                  <p className="font-display font-bold text-[2.2rem] md:text-[3rem] text-primary leading-none mb-2 group-hover:scale-105 transition-transform origin-left">
+                    <CountUp to={s.to} suffix={s.suffix} />
+                  </p>
                   <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-widest whitespace-pre-line leading-relaxed">{s.label}</p>
                 </div>
               ))}

@@ -13,9 +13,12 @@ export function HeroOrbs() {
       <div className="absolute bottom-[20%] left-[40%] w-[450px] h-[450px] rounded-full blur-[130px] opacity-15 animate-orb-3"
         style={{ background: "oklch(0.40 0.12 235)" }} />
 
-      {/* Scan line */}
+      {/* Scan line — downward */}
       <div className="absolute left-0 right-0 h-[1px] animate-scan pointer-events-none"
         style={{ background: "linear-gradient(90deg, transparent, oklch(0.65 0.16 220 / 0.6), transparent)" }} />
+      {/* Scan line — upward, offset */}
+      <div className="absolute left-0 right-0 h-[1px] animate-scan pointer-events-none opacity-40"
+        style={{ background: "linear-gradient(90deg, transparent, oklch(0.80 0.17 80 / 0.5), transparent)", animationDelay: "4s", animationDirection: "reverse" }} />
     </div>
   )
 }

@@ -30,7 +30,7 @@ export function Vip() {
 
       {/* Diagonal shine sweep */}
       <div
-        className="absolute top-0 bottom-0 w-[200px] skew-x-[-20deg] pointer-events-none animate-vip-shine opacity-20 z-10"
+        className="absolute top-0 bottom-0 w-[200px] pointer-events-none animate-vip-shine opacity-20 z-10"
         style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent)" }}
       />
 

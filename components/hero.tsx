@@ -42,7 +42,7 @@ export function Hero() {
 
         <h1 className="font-display font-extrabold uppercase leading-[0.9] mb-5 tracking-tight">
           <span
-            className="block text-[clamp(3rem,8vw,7rem)] text-foreground"
+            className="block text-[clamp(3rem,8vw,7rem)] text-foreground animate-glitch"
             style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.9)" }}
           >
             ONADA
@@ -65,10 +65,14 @@ export function Hero() {
             Cocktails de autor, shisha premium y los mejores DJs de la escena.
           </p>
           <div className="flex flex-wrap gap-3">
-            <a href={`tel:${BUSINESS.phone}`} className="btn-disco">
-              <Phone className="w-3 h-3" />
-              Reservar Mesa
-            </a>
+            <div className="relative inline-flex">
+              <span className="absolute inset-0 rounded-[6px] bg-primary/40 animate-ring-out pointer-events-none" />
+              <span className="absolute inset-0 rounded-[6px] bg-primary/20 animate-ring-out pointer-events-none" style={{ animationDelay: "1.1s" }} />
+              <a href={`tel:${BUSINESS.phone}`} className="btn-disco relative z-10">
+                <Phone className="w-3 h-3" />
+                Reservar Mesa
+              </a>
+            </div>
             <a href="#eventos" className="btn-disco-outline">
               Ver Eventos
             </a>
