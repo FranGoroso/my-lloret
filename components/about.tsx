@@ -1,19 +1,24 @@
-import Image from "next/image"
 import { Reveal } from "@/components/reveal"
 
 export function About() {
   return (
     <section id="sobre-nosotros" className="relative bg-card py-24 md:py-36 overflow-hidden">
-      {/* Subtle background image */}
+      {/* Fondo: gradiente radial náutico + patrón de puntos */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image
-          src="/hero-bg.jpeg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-[50%_60%] brightness-[0.18] saturate-[0.6]"
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 70% at 15% 50%, oklch(0.68 0.18 215 / 0.10) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 80%, oklch(0.80 0.17 80 / 0.06) 0%, transparent 55%)",
+          }}
         />
-        <div className="absolute inset-0 bg-card/70" />
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: "radial-gradient(circle, oklch(0.68 0.18 215) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
