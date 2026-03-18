@@ -5,49 +5,61 @@ import { BUSINESS } from "@/constants/business"
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative h-screen min-h-[640px] flex flex-col justify-end overflow-hidden">
+    <section id="inicio" className="relative h-screen min-h-[640px] flex flex-col overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/hero-bg.jpg"
+          src="/hero-bg.jpeg"
           alt={`${BUSINESS.name} — Discoteca Lloret de Mar`}
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[50%_40%] brightness-[0.85] saturate-[1.4] contrast-[1.1]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/10" />
+        {/* Tinte azul marino sutil para coherencia con la marca */}
+        <div className="absolute inset-0 bg-[oklch(0.16_0.08_235/0.35)] mix-blend-multiply" />
+        {/* Gradient bottom — para fundir con el fondo */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/35 to-transparent" />
       </div>
 
       {/* Floating light orbs + scan line */}
       <HeroOrbs />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 pb-16 w-full">
+      {/* Spacer que empuja el contenido por debajo del navbar */}
+      <div className="shrink-0 h-[calc(4.5rem+3px)] md:h-[calc(5rem+3px)]" />
+
+      {/* Content — centrado verticalmente en el espacio restante */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center mx-auto max-w-7xl px-6 lg:px-12 w-full pb-4">
         {/* Animated accent line */}
         <div
-          className="w-14 h-[3px] mb-8 animate-gradient-x rounded-full"
+          className="w-14 h-[3px] mb-6 animate-gradient-x rounded-full"
           style={{ background: "linear-gradient(90deg, oklch(0.68 0.18 215), oklch(0.80 0.17 80), oklch(0.68 0.18 215))" }}
         />
 
-        <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-primary/80 mb-5">
+        <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-primary/80 mb-4">
           Lloret de Mar · Costa Brava
         </p>
 
-        <h1 className="font-display font-extrabold uppercase leading-[0.88] mb-6 tracking-tight">
-          <span className="block text-[clamp(4.5rem,14vw,10.5rem)] text-foreground">
+        <h1 className="font-display font-extrabold uppercase leading-[0.9] mb-5 tracking-tight">
+          <span
+            className="block text-[clamp(3rem,8vw,7rem)] text-foreground"
+            style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.9)" }}
+          >
             ONADA
           </span>
-          <span className="block text-[clamp(4.5rem,14vw,10.5rem)] text-primary animate-neon-pulse">
+          <span
+            className="block text-[clamp(3rem,8vw,7rem)] text-primary animate-neon-pulse"
+            style={{ textShadow: "0 0 32px oklch(0.68 0.18 215 / 0.7), 0 2px 20px rgba(0,0,0,0.8)" }}
+          >
             BY BEACH
           </span>
         </h1>
 
-        <p className="font-display font-semibold text-[clamp(1rem,2.5vw,1.5rem)] text-foreground/70 italic tracking-wide mb-8">
+        <p className="font-display font-semibold text-[clamp(0.95rem,2vw,1.35rem)] text-foreground/70 italic tracking-wide mb-7">
           {BUSINESS.slogan}
         </p>
 
-        <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-16">
+        <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-14">
           <p className="text-base text-muted-foreground leading-relaxed max-w-xs">
             La discoteca de referencia en la Costa Brava.
             Cocktails de autor, shisha premium y los mejores DJs de la escena.
