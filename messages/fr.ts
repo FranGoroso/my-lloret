@@ -1,0 +1,81 @@
+export const fr = {
+  nav: {
+    home: 'Accueil', services: 'Services', events: 'Événements',
+    gallery: 'Galerie', contact: 'Contact',
+    book: 'Réserver', menu: 'Menu', close: 'Fermer',
+    reservations: 'Réservations', openThisWeek: 'Ouvert cette semaine',
+  },
+  hero: {
+    location: 'Lloret de Mar · Costa Brava',
+    description: 'La discothèque de référence sur la Costa Brava. Cocktails signature, shisha premium et les meilleurs DJs de la scène.',
+    bookTable: 'Réserver une Table', seeEvents: 'Voir les Événements',
+    hours: 'Horaires', address: 'Adresse', phone: 'Téléphone',
+  },
+  about: {
+    label: 'Le lieu',
+    line1: 'Là où', line2: 'la nuit', line3: 'prend vie.',
+    nights: 'Nuits\npar semaine', rooms: 'Salles &\nambiances', disco: 'Club à\nLloret de Mar',
+    p1: 'Au cœur de Lloret de Mar, Onada by Beach est bien plus qu\'une discothèque. C\'est l\'endroit où chaque nuit devient un souvenir inoubliable.',
+    p2: 'Cocktails signature, une zone shisha de luxe et des sets des meilleurs DJs de la scène nationale et internationale. Tout dans un espace soigné jusqu\'au moindre détail.',
+    feat1: 'Ambiance sélecte et soignée', feat2: 'Service personnalisé', feat3: 'Les meilleures nuits de la Costa Brava',
+  },
+  services: {
+    label: 'Ce que nous offrons', line1: 'Nos', line2: 'Services',
+    subtitle: 'Tout ce qu\'il vous faut pour une nuit parfaite sur la Costa Brava',
+    items: [
+      { num: '01', title: 'Cocktails Signature', description: 'Cocktails premium élaborés par des bartenders experts. Des grands classiques aux créations exclusives maison avec des ingrédients de première qualité.' },
+      { num: '02', title: 'Shisha Lounge', description: 'Large sélection de shishas premium avec les meilleures saveurs. Profitez de notre espace lounge exclusif avec un service dédié.' },
+      { num: '03', title: 'Musique & DJs', description: 'House, techno, urban et le meilleur du moment. Sets de DJs de la scène nationale et internationale. Chaque nuit a son propre son.' },
+      { num: '04', title: 'Tables VIP', description: 'Accès prioritaire, bouteille réservée et attention personnalisée toute la nuit. L\'expérience complète Onada by Beach.' },
+      { num: '05', title: 'Événements Privés', description: 'Anniversaires, enterrements de vie de garçon, événements d\'entreprise. Espaces exclusifs avec coordination intégrale.' },
+      { num: '06', title: 'Nuits Thématiques', description: 'Une nouvelle proposition chaque semaine. Genres spéciaux, DJs invités et décorations uniques qui rendent chaque visite inoubliable.' },
+    ],
+  },
+  events: {
+    label: 'Agenda', line1: 'Prochains', line2: 'Événements',
+    bookTickets: 'Consulter billets', book: 'Réserver', consult: 'Consulter',
+    featured: 'À la une', schedule: 'Programme sujet à modifications', opening: 'Ouverture',
+    weekdays: { 'Lun': 'Lun', 'Mar': 'Mar', 'Mié': 'Mer', 'Jue': 'Jeu', 'Vie': 'Ven', 'Sáb': 'Sam', 'Dom': 'Dim' },
+    months: { 'Ene': 'Jan', 'Feb': 'Fév', 'Mar': 'Mar', 'Abr': 'Avr', 'May': 'Mai', 'Jun': 'Juin', 'Jul': 'Juil', 'Ago': 'Aoû', 'Sep': 'Sep', 'Oct': 'Oct', 'Nov': 'Nov', 'Dic': 'Déc' },
+  },
+  gallery: {
+    label: 'Ambiance', line1: 'Notre', line2: 'Galerie',
+    subtitle: 'Vivez-le avant d\'arriver.',
+    follow: 'Suivez-nous pour plus de contenu', instagram: 'Voir sur Instagram',
+  },
+  vip: {
+    label: 'Expérience exclusive', line1: 'Réservez votre', line2: 'Table VIP',
+    description: 'Parce que certaines nuits méritent quelque chose de plus. Profitez sans limites, avec tout le service que vous méritez.',
+    includes: 'Ce qui est inclus',
+    items: ['Entrée sans file d\'attente garantie', 'Table réservée toute la nuit', 'Bouteille de bienvenue incluse', 'Service de serveur exclusif', 'Espace lounge shisha disponible'],
+    call: 'Appeler', whatsapp: 'WhatsApp',
+  },
+  contact: {
+    label: 'Trouvez-nous', line1: 'Contact &', line2: 'Réservations',
+    phoneLabel: 'Téléphone réservations', phoneSubtitle: 'Appelez ou écrivez-nous, nous répondons rapidement',
+    addressLabel: 'Adresse', hoursLabel: 'Horaires', hoursValue: 'Jeudi — Dimanche',
+    call: 'Appeler', whatsapp: 'WhatsApp', writeUs: 'Ou écrivez-nous',
+    formName: 'Nom *', formPhone: 'Téléphone', formMessage: 'Message *',
+    formNamePlaceholder: 'Votre nom', formPhonePlaceholder: '+34 600 000 000',
+    formMessagePlaceholder: 'Comment pouvons-nous vous aider ? Réservations, événements privés, informations...',
+    formSend: 'Envoyer par WhatsApp', formSent: 'Ouverture de WhatsApp ! ✓',
+    formNote: 'WhatsApp s\'ouvrira avec votre message prêt à envoyer.',
+  },
+  jobs: {
+    label: 'Rejoignez l\'équipe', line1: 'Voulez-vous travailler', line2: 'avec nous ?',
+    description: 'Nous cherchons des personnes passionnées par l\'hôtellerie, la musique et les bonnes ambiances. Si vous souhaitez rejoindre l\'une des meilleures équipes de la Costa Brava, écrivez ou appelez-nous.',
+    call: 'Appelez-nous', whatsapp: 'WhatsApp',
+  },
+  marquee: {
+    rowA: ['Cocktails Signature', 'Live DJs', 'Shisha Premium', 'Tables VIP', 'Costa Brava', 'Nuits Uniques'],
+    rowB: ['Open Bar', 'Discothèque', 'Réservez votre Table', 'Chaque Weekend', 'Club Nocturne'],
+  },
+  footer: {
+    pages: 'Pages', contact: 'Contact', open: 'Ouvert cette semaine',
+    rights: 'Tous droits réservés', privacy: 'Confidentialité & Cookies', legal: 'Mentions Légales',
+  },
+  cookies: {
+    text: 'Nous utilisons des cookies propres et tiers pour améliorer votre expérience et analyser le trafic. Vous pouvez les accepter ou refuser les non essentiels.',
+    policy: 'Politique de confidentialité', accept: 'Tout accepter', decline: 'Essentiels uniquement',
+  },
+}
