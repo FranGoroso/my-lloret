@@ -1,16 +1,13 @@
+"use client"
+
 import Image from "next/image"
 import { Phone, MessageCircle } from "lucide-react"
 import { BUSINESS } from "@/constants/business"
-
-const includes = [
-  "Acceso sin cola garantizado",
-  "Mesa reservada toda la noche",
-  "Botella de bienvenida incluida",
-  "Servicio de camarero exclusivo",
-  "Zona lounge shisha disponible",
-]
+import { useLanguage } from "@/contexts/language-context"
 
 export function Vip() {
+  const { t } = useLanguage()
+
   return (
     <section className="relative overflow-hidden py-24 md:py-36">
       {/* Background image with primary tint */}
@@ -39,25 +36,24 @@ export function Vip() {
 
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/60 mb-8">
-              Experiencia exclusiva
+              {t.vip.label}
             </p>
             <h2 className="font-display font-bold uppercase leading-[0.9] tracking-tight mb-8">
-              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-white/60 font-semibold">Reserva tu</span>
-              <span className="block text-[clamp(3rem,7vw,5.5rem)] text-white" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.5)" }}>Mesa VIP</span>
+              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-white/60 font-semibold">{t.vip.line1}</span>
+              <span className="block text-[clamp(3rem,7vw,5.5rem)] text-white" style={{ textShadow: "0 2px 24px rgba(0,0,0,0.5)" }}>{t.vip.line2}</span>
             </h2>
             <p className="text-sm text-white/70 leading-[1.85] max-w-sm">
-              Porque algunas noches merecen algo más. Disfruta de {BUSINESS.name}
-              {" "}sin límites, con todo el servicio que mereces.
+              {t.vip.description}
             </p>
           </div>
 
           <div>
             <div className="border border-white/20 bg-black/20 backdrop-blur-sm p-5 md:p-8 mb-5">
               <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50 mb-6">
-                Lo que incluye
+                {t.vip.includes}
               </p>
               <ul className="space-y-3.5">
-                {includes.map((item) => (
+                {t.vip.items.map((item) => (
                   <li key={item} className="flex items-center gap-4 text-sm text-white/80">
                     <span className="w-5 h-px bg-white/40 shrink-0" />
                     {item}
@@ -71,7 +67,7 @@ export function Vip() {
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md bg-white text-primary hover:bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.35)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 transition-all"
               >
                 <Phone className="w-3 h-3" />
-                Llamar
+                {t.vip.call}
               </a>
               <a
                 href={BUSINESS.whatsapp}
@@ -80,7 +76,7 @@ export function Vip() {
                 className="flex-1 inline-flex items-center justify-center gap-2 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-5 py-4 rounded-md border-2 border-white/50 text-white hover:border-white hover:bg-white/10 hover:-translate-y-0.5 transition-all"
               >
                 <MessageCircle className="w-3 h-3" />
-                WhatsApp
+                {t.vip.whatsapp}
               </a>
             </div>
           </div>

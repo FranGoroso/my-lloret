@@ -1,9 +1,14 @@
+"use client"
+
 import { Phone } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { BUSINESS } from "@/constants/business"
 import { events } from "@/data/events"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Events() {
+  const { t } = useLanguage()
+
   return (
     <section id="eventos" className="relative bg-card py-24 md:py-36 overflow-hidden">
       {/* Dot pattern background */}
@@ -29,16 +34,16 @@ export function Events() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-5">
-              Agenda
+              {t.events.label}
             </p>
             <h2 className="font-display font-bold uppercase leading-[0.9] tracking-tight">
-              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">Próximos</span>
-              <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">Eventos</span>
+              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">{t.events.line1}</span>
+              <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">{t.events.line2}</span>
             </h2>
           </div>
           <a href={`tel:${BUSINESS.phone}`} className="btn-disco hidden md:inline-flex self-end">
             <Phone className="w-3 h-3" />
-            Consultar entradas
+            {t.events.bookTickets}
           </a>
         </div>
 
@@ -55,8 +60,12 @@ export function Events() {
                 <p className="font-display font-bold text-[1.6rem] md:text-[2.4rem] leading-none text-foreground tracking-tight">
                   {event.day}
                 </p>
-                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-muted-foreground mt-0.5">{event.month}</p>
-                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-primary/60">{event.weekday}</p>
+                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-muted-foreground mt-0.5">
+                  {t.events.months[event.month as keyof typeof t.events.months] ?? event.month}
+                </p>
+                <p className="text-[8px] md:text-[9px] font-medium uppercase tracking-widest text-primary/60">
+                  {t.events.weekdays[event.weekday as keyof typeof t.events.weekdays] ?? event.weekday}
+                </p>
               </div>
 
               <div className="w-px h-10 bg-border shrink-0" />
@@ -72,12 +81,12 @@ export function Events() {
                   {event.featured && (
                     <span className="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest border border-primary text-primary px-2 py-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary animate-beat inline-block" />
-                      Destacado
+                      {t.events.featured}
                     </span>
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  {event.dj} · {event.genre} · Apertura {BUSINESS.hours.opens}
+                  {event.dj} · {event.genre} · {t.events.opening} {BUSINESS.hours.opens}
                 </p>
               </div>
 
@@ -89,17 +98,17 @@ export function Events() {
                 href={`tel:${BUSINESS.phone}`}
                 className={`shrink-0 ${event.featured ? "btn-disco-sm" : "btn-disco-sm-outline"}`}
               >
-                Reservar
+                {t.events.book}
               </a>
             </div>
           ))}
         </div>
 
         <div className="mt-8 flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Programación sujeta a cambios</p>
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{t.events.schedule}</p>
           <a href={`tel:${BUSINESS.phone}`} className="btn-disco md:hidden">
             <Phone className="w-3 h-3" />
-            Consultar
+            {t.events.consult}
           </a>
         </div>
       </div>

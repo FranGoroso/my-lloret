@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useLanguage } from "@/contexts/language-context"
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const choice = localStorage.getItem("cookie-consent")
@@ -31,10 +33,9 @@ export function CookieBanner() {
     >
       <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl">
-          Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico.
-          Puedes aceptarlas o rechazar las no esenciales.{" "}
+          {t.cookies.text}{" "}
           <Link href="/privacidad" className="text-primary hover:underline underline-offset-2">
-            Política de privacidad
+            {t.cookies.policy}
           </Link>
         </p>
         <div className="flex gap-3 shrink-0">
@@ -42,13 +43,13 @@ export function CookieBanner() {
             onClick={decline}
             className="text-[0.65rem] font-bold uppercase tracking-[0.15em] px-4 py-2.5 border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
           >
-            Solo necesarias
+            {t.cookies.decline}
           </button>
           <button
             onClick={accept}
             className="btn-disco-sm"
           >
-            Aceptar todas
+            {t.cookies.accept}
           </button>
         </div>
       </div>

@@ -1,34 +1,7 @@
+"use client"
+
 import { BUSINESS } from "@/constants/business"
-
-const rowA = [
-  { text: BUSINESS.name, accent: true },
-  { text: "Cocktails de Autor", accent: false },
-  { text: "◆", accent: true, small: true },
-  { text: "Live DJs", accent: false },
-  { text: "Costa Brava", accent: false },
-  { text: "◆", accent: true, small: true },
-  { text: "Shisha Premium", accent: false },
-  { text: "Mesas VIP", accent: "gold" },
-  { text: "◆", accent: true, small: true },
-  { text: "Lloret de Mar", accent: false },
-  { text: "Noches Únicas", accent: "gold" },
-  { text: "◆", accent: true, small: true },
-]
-
-const rowB = [
-  { text: "Open Bar", accent: false },
-  { text: "◆", accent: true, small: true },
-  { text: "Discoteca", accent: "gold" },
-  { text: "◆", accent: true, small: true },
-  { text: "Costa Brava", accent: false },
-  { text: "Reserva tu Mesa", accent: true },
-  { text: "◆", accent: true, small: true },
-  { text: "Every Weekend", accent: false },
-  { text: "◆", accent: true, small: true },
-  { text: BUSINESS.name, accent: "gold" },
-  { text: "Club Nocturno", accent: false },
-  { text: "◆", accent: true, small: true },
-]
+import { useLanguage } from "@/contexts/language-context"
 
 type Item = { text: string; accent: boolean | string; small?: boolean }
 
@@ -64,6 +37,24 @@ function MarqueeRow({ items, reverse = false }: { items: Item[]; reverse?: boole
 }
 
 export function Marquee() {
+  const { t } = useLanguage()
+
+  const rowA: Item[] = t.marquee.rowA.flatMap((text, i) => [
+    { text, accent: i === 0 ? true : (i % 3 === 2 ? 'gold' : false) },
+    { text: '◆', accent: true, small: true },
+  ])
+  const rowB: Item[] = t.marquee.rowB.flatMap((text, i) => [
+    { text, accent: i % 2 === 0 ? 'gold' : false },
+    { text: '◆', accent: true, small: true },
+  ])
+
+  // Prepend business name to rowA
+  const rowAWithBrand: Item[] = [
+    { text: BUSINESS.name, accent: true },
+    { text: '◆', accent: true, small: true },
+    ...rowA,
+  ]
+
   return (
     <div className="relative border-y border-border/60 overflow-hidden select-none bg-background/80 backdrop-blur-sm">
       {/* Glow line top */}
@@ -75,7 +66,7 @@ export function Marquee() {
       <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
 
       <div className="py-3 space-y-2.5">
-        <MarqueeRow items={rowA} />
+        <MarqueeRow items={rowAWithBrand} />
         <MarqueeRow items={rowB} reverse />
       </div>
     </div>

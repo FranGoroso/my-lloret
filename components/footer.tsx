@@ -1,8 +1,21 @@
+"use client"
+
 import { Instagram, Facebook } from "lucide-react"
 import Link from "next/link"
 import { BUSINESS } from "@/constants/business"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Footer() {
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { href: "#inicio",    label: t.nav.home },
+    { href: "#servicios", label: t.nav.services },
+    { href: "#eventos",   label: t.nav.events },
+    { href: "#galeria",   label: t.nav.gallery },
+    { href: "#contacto",  label: t.nav.contact },
+  ]
+
   return (
     <footer className="relative border-t border-border bg-card/50 backdrop-blur-sm">
       {/* Brand gradient line at top */}
@@ -35,16 +48,10 @@ export function Footer() {
 
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-5">
-              Páginas
+              {t.footer.pages}
             </p>
             <nav className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {[
-                { href: "#inicio",    label: "Inicio" },
-                { href: "#servicios", label: "Servicios" },
-                { href: "#eventos",   label: "Eventos" },
-                { href: "#galeria",   label: "Galería" },
-                { href: "#contacto",  label: "Contacto" },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -58,7 +65,7 @@ export function Footer() {
 
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-5">
-              Contacto
+              {t.footer.contact}
             </p>
             <div className="space-y-2.5 text-xs text-muted-foreground">
               <a href={`tel:${BUSINESS.phone}`} className="block hover:text-primary transition-colors font-semibold text-foreground/80">
@@ -72,20 +79,20 @@ export function Footer() {
 
         <div className="border-t border-border/50 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
-            © {new Date().getFullYear()} {BUSINESS.name} · Todos los derechos reservados
+            © {new Date().getFullYear()} {BUSINESS.name} · {t.footer.rights}
           </p>
           <div className="flex items-center gap-4">
             <Link href="/aviso-legal" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
-              Aviso Legal
+              {t.footer.legal}
             </Link>
             <span className="text-border text-xs">·</span>
             <Link href="/privacidad" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
-              Privacidad & Cookies
+              {t.footer.privacy}
             </Link>
           </div>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-beat" />
-            Abierto esta semana
+            {t.footer.open}
           </div>
         </div>
       </div>

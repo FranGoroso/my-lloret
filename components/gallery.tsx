@@ -1,7 +1,10 @@
+"use client"
+
 import Image from "next/image"
 import { Instagram } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { BUSINESS } from "@/constants/business"
+import { useLanguage } from "@/contexts/language-context"
 
 const images = [
   { src: "/gallery-1.jpeg", alt: "Ambiente interior" },
@@ -11,6 +14,8 @@ const images = [
 ]
 
 export function Gallery() {
+  const { t } = useLanguage()
+
   return (
     <section id="galeria" className="py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -19,15 +24,15 @@ export function Gallery() {
         <div className="flex items-end justify-between mb-12">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-5">
-              Ambiente
+              {t.gallery.label}
             </p>
             <h2 className="font-display leading-none">
-              <span className="block font-light text-[clamp(2rem,5vw,3.5rem)] text-muted-foreground">Nuestra</span>
-              <span className="block font-semibold italic text-[clamp(2.5rem,6.5vw,5rem)] text-foreground">Galería</span>
+              <span className="block font-light text-[clamp(2rem,5vw,3.5rem)] text-muted-foreground">{t.gallery.line1}</span>
+              <span className="block font-semibold italic text-[clamp(2.5rem,6.5vw,5rem)] text-foreground">{t.gallery.line2}</span>
             </h2>
           </div>
           <p className="hidden md:block font-display italic text-muted-foreground text-lg pb-2">
-            Vívelo antes de llegar.
+            {t.gallery.subtitle}
           </p>
         </div>
 
@@ -100,7 +105,7 @@ export function Gallery() {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-[10px] text-muted-foreground uppercase tracking-widest">
             <span className="w-5 h-px bg-primary" />
-            Síguenos para ver más contenido
+            {t.gallery.follow}
           </div>
           <a
             href={BUSINESS.social.instagram}
@@ -109,7 +114,7 @@ export function Gallery() {
             className="inline-flex items-center gap-2.5 font-display font-bold text-[0.7rem] uppercase tracking-[0.2em] px-6 py-3 border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all duration-300 group"
           >
             <Instagram className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-            Ver en Instagram
+            {t.gallery.instagram}
           </a>
         </div>
       </div>

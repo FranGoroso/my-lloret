@@ -1,9 +1,14 @@
+"use client"
+
 import Image from "next/image"
 import { Phone } from "lucide-react"
 import { HeroOrbs } from "@/components/hero-orbs"
 import { BUSINESS } from "@/constants/business"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section id="inicio" className="relative h-screen min-h-[640px] flex flex-col overflow-hidden">
       {/* Background image */}
@@ -37,7 +42,7 @@ export function Hero() {
         />
 
         <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-primary/80 mb-4">
-          Lloret de Mar · Costa Brava
+          {t.hero.location}
         </p>
 
         <h1 className="font-display font-extrabold uppercase leading-[0.9] mb-5 tracking-tight">
@@ -61,8 +66,7 @@ export function Hero() {
 
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-14">
           <p className="text-base text-muted-foreground leading-relaxed max-w-xs">
-            La discoteca de referencia en la Costa Brava.
-            Cocktails de autor, shisha premium y los mejores DJs de la escena.
+            {t.hero.description}
           </p>
           <div className="flex flex-wrap gap-3">
             <div className="relative inline-flex">
@@ -70,11 +74,11 @@ export function Hero() {
               <span className="absolute inset-0 rounded-[6px] bg-primary/20 animate-ring-out pointer-events-none" style={{ animationDelay: "1.1s" }} />
               <a href={`tel:${BUSINESS.phone}`} className="btn-disco relative z-10">
                 <Phone className="w-3 h-3" />
-                Reservar Mesa
+                {t.hero.bookTable}
               </a>
             </div>
             <a href="#eventos" className="btn-disco-outline">
-              Ver Eventos
+              {t.hero.seeEvents}
             </a>
           </div>
         </div>
@@ -85,11 +89,11 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3 md:gap-0 md:flex md:items-center md:gap-12 py-4 md:py-4">
             {[
-              ["Horario",   BUSINESS.hours.display],
-              ["Teléfono",  BUSINESS.phoneDisplay],
-              ["Dirección", BUSINESS.address],
+              [t.hero.hours,   BUSINESS.hours.display],
+              [t.hero.phone,   BUSINESS.phoneDisplay],
+              [t.hero.address, BUSINESS.address],
             ].map(([label, value]) => (
-              <div key={label} className={`flex flex-col md:flex-row md:items-center gap-0.5 md:gap-3 ${label === "Dirección" ? "col-span-2 md:col-span-1" : ""}`}>
+              <div key={label} className={`flex flex-col md:flex-row md:items-center gap-0.5 md:gap-3 ${label === t.hero.address ? "col-span-2 md:col-span-1" : ""}`}>
                 <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-primary/80 font-bold shrink-0">{label}</span>
                 <span className="text-[11px] md:text-sm tracking-wide text-foreground/80">{value}</span>
               </div>

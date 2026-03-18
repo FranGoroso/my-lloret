@@ -1,7 +1,11 @@
+"use client"
+
 import { Reveal } from "@/components/reveal"
-import { services } from "@/data/services"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Services() {
+  const { t } = useLanguage()
+
   return (
     <section id="servicios" className="relative py-24 md:py-36 overflow-hidden">
       {/* Subtle background */}
@@ -20,20 +24,20 @@ export function Services() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-5">
-              Lo que ofrecemos
+              {t.services.label}
             </p>
             <h2 className="font-display font-bold uppercase leading-[0.9] tracking-tight">
-              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">Nuestros</span>
-              <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">Servicios</span>
+              <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">{t.services.line1}</span>
+              <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">{t.services.line2}</span>
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-xs leading-relaxed md:text-right md:pb-1">
-            Todo lo que necesitas para una noche perfecta en la Costa Brava
+            {t.services.subtitle}
           </p>
         </div>
 
         <div className="border-t border-border">
-          {services.map((service, i) => (
+          {t.services.items.map((service, i) => (
             <Reveal key={service.num} delay={i * 60}>
               <div className="group relative border-b border-border overflow-hidden">
                 {/* Animated left accent */}

@@ -1,19 +1,24 @@
+"use client"
+
 import { Phone, MapPin, Clock, MessageCircle } from "lucide-react"
 import { BUSINESS } from "@/constants/business"
 import { ContactForm } from "@/components/contact-form"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contacto" className="bg-card py-24 md:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
 
         <div className="mb-16">
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-5">
-            Encuéntranos
+            {t.contact.label}
           </p>
           <h2 className="font-display font-bold uppercase leading-[0.9] tracking-tight">
-            <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">Contacto &</span>
-            <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">Reservas</span>
+            <span className="block text-[clamp(1.8rem,4vw,3rem)] text-muted-foreground/60 font-semibold">{t.contact.line1}</span>
+            <span className="block text-[clamp(2.5rem,6vw,4.5rem)] text-foreground">{t.contact.line2}</span>
           </h2>
         </div>
 
@@ -22,7 +27,7 @@ export function Contact() {
           <div className="space-y-10">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
-                <Phone className="w-4 h-4" /> Teléfono de reservas
+                <Phone className="w-4 h-4" /> {t.contact.phoneLabel}
               </p>
               <a
                 href={`tel:${BUSINESS.phone}`}
@@ -30,13 +35,13 @@ export function Contact() {
               >
                 {BUSINESS.phoneDisplay}
               </a>
-              <p className="text-sm text-muted-foreground mt-2">Llama o escríbenos, respondemos rápido</p>
+              <p className="text-sm text-muted-foreground mt-2">{t.contact.phoneSubtitle}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" /> Dirección
+                  <MapPin className="w-4 h-4" /> {t.contact.addressLabel}
                 </p>
                 <p className="text-base text-foreground leading-relaxed">
                   {BUSINESS.address}<br />{BUSINESS.city}, {BUSINESS.region}
@@ -44,10 +49,10 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
-                  <Clock className="w-4 h-4" /> Horario
+                  <Clock className="w-4 h-4" /> {t.contact.hoursLabel}
                 </p>
                 <p className="text-base text-foreground leading-relaxed">
-                  Jueves — Domingo<br />{BUSINESS.hours.opens} — {BUSINESS.hours.closes}
+                  {t.contact.hoursValue}<br />{BUSINESS.hours.opens} — {BUSINESS.hours.closes}
                 </p>
               </div>
             </div>
@@ -57,19 +62,19 @@ export function Contact() {
             <div className="flex gap-3">
               <a href={`tel:${BUSINESS.phone}`} className="btn-disco flex-1">
                 <Phone className="w-3 h-3" />
-                Llamar
+                {t.contact.call}
               </a>
               <a href={BUSINESS.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-disco-outline flex-1">
                 <MessageCircle className="w-3 h-3" />
-                WhatsApp
+                {t.contact.whatsapp}
               </a>
             </div>
 
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-primary mb-6">
-                O escríbenos
+                {t.contact.writeUs}
               </p>
-              <ContactForm />
+              <ContactForm t={t.contact} />
             </div>
           </div>
 

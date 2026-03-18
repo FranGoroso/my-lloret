@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { CookieBanner } from '@/components/cookie-banner'
 import { BUSINESS } from '@/constants/business'
 import './globals.css'
+import { LanguageProvider } from '@/contexts/language-context'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -123,8 +124,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
-        <CookieBanner />
+        <LanguageProvider>
+          {children}
+          <CookieBanner />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

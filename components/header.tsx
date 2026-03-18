@@ -4,18 +4,21 @@ import { useState, useEffect } from "react"
 import { Phone, Instagram, Facebook } from "lucide-react"
 import Link from "next/link"
 import { BUSINESS } from "@/constants/business"
-
-const navLinks = [
-  { href: "#inicio",    label: "Inicio",    num: "01" },
-  { href: "#servicios", label: "Servicios", num: "02" },
-  { href: "#eventos",   label: "Eventos",   num: "03" },
-  { href: "#galeria",   label: "Galería",   num: "04" },
-  { href: "#contacto",  label: "Contacto",  num: "05" },
-]
+import { LanguageSelector } from "@/components/language-selector"
+import { useLanguage } from "@/contexts/language-context"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [menuOpen, setMenuOpen]     = useState(false)
+  const { t } = useLanguage()
+
+  const navLinks = [
+    { href: "#inicio",    label: t.nav.home,     num: "01" },
+    { href: "#servicios", label: t.nav.services,  num: "02" },
+    { href: "#eventos",   label: t.nav.events,    num: "03" },
+    { href: "#galeria",   label: t.nav.gallery,   num: "04" },
+    { href: "#contacto",  label: t.nav.contact,   num: "05" },
+  ]
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 60)
@@ -65,10 +68,11 @@ export function Header() {
 
             {/* Right side */}
             <div className="flex items-center gap-4 z-50 relative">
+              <LanguageSelector />
               {!menuOpen && (
                 <a href={`tel:${BUSINESS.phone}`} className="btn-disco hidden md:inline-flex !py-2.5 !px-5">
                   <Phone className="w-3 h-3" />
-                  Reservar
+                  {t.nav.book}
                 </a>
               )}
 
@@ -84,7 +88,7 @@ export function Header() {
                   <span className={`block h-px bg-foreground transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
                 </div>
                 <span className="font-display font-bold text-[0.68rem] uppercase tracking-[0.22em] text-foreground hidden sm:block">
-                  {menuOpen ? "Cerrar" : "Menú"}
+                  {menuOpen ? t.nav.close : t.nav.menu}
                 </span>
               </button>
             </div>
@@ -134,7 +138,7 @@ export function Header() {
 
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                      Reservas
+                      {t.nav.reservations}
                     </p>
                     <a
                       href={`tel:${BUSINESS.phone}`}
@@ -146,7 +150,7 @@ export function Header() {
 
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                      Horario
+                      {t.hero.hours}
                     </p>
                     <p className="text-sm text-foreground leading-relaxed">
                       {BUSINESS.hours.days}<br />
@@ -156,7 +160,7 @@ export function Header() {
 
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                      Dirección
+                      {t.hero.address}
                     </p>
                     <p className="text-sm text-foreground leading-relaxed">
                       {BUSINESS.address}<br />
@@ -175,7 +179,7 @@ export function Header() {
 
                   <a href={`tel:${BUSINESS.phone}`} className="btn-disco mt-2">
                     <Phone className="w-3 h-3" />
-                    Reservar Mesa
+                    {t.hero.bookTable}
                   </a>
                 </div>
               </div>
@@ -193,7 +197,7 @@ export function Header() {
               </p>
               <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-                Abierto esta semana
+                {t.nav.openThisWeek}
               </div>
             </div>
           </div>
