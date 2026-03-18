@@ -5,7 +5,7 @@ import { BUSINESS } from "@/constants/business"
 export function Jobs() {
   return (
     <section id="trabaja-con-nosotros" className="py-24 md:py-36 relative overflow-hidden">
-      {/* Fondo con gradiente náutico sutil */}
+      {/* Radial glow background */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -18,7 +18,12 @@ export function Jobs() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
         <Reveal>
-          <div className="border border-border bg-card/60 backdrop-blur-sm p-6 sm:p-10 md:p-16 grid md:grid-cols-2 gap-8 md:gap-20 items-center">
+          <div className="relative border border-border/60 bg-card/70 backdrop-blur-sm overflow-hidden p-6 sm:p-10 md:p-16 grid md:grid-cols-2 gap-8 md:gap-20 items-center">
+            {/* Accent corner line */}
+            <div
+              className="absolute top-0 left-0 w-24 h-[2px] animate-gradient-x"
+              style={{ background: "linear-gradient(90deg, oklch(0.68 0.18 215), oklch(0.80 0.17 80))" }}
+            />
 
             {/* Left */}
             <div>
@@ -43,7 +48,7 @@ export function Jobs() {
                 los mejores equipos de la Costa Brava, escríbenos o llámanos.
               </p>
 
-              <div className="h-px bg-border" />
+              <div className="h-px bg-border/60" />
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href={`tel:${BUSINESS.phone}`} className="btn-disco flex-1">
@@ -60,7 +65,6 @@ export function Jobs() {
                 </a>
               </div>
             </div>
-
           </div>
         </Reveal>
       </div>

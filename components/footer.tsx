@@ -2,22 +2,35 @@ import { Instagram, Facebook } from "lucide-react"
 import Link from "next/link"
 import { BUSINESS } from "@/constants/business"
 
-
 export function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="relative border-t border-border bg-card/50 backdrop-blur-sm">
+      {/* Brand gradient line at top */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px] animate-gradient-x"
+        style={{ background: "linear-gradient(90deg, oklch(0.68 0.18 215), oklch(0.80 0.17 80), oklch(0.45 0.12 230), oklch(0.68 0.18 215))" }}
+      />
+
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 py-10 md:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 py-12 md:py-16">
 
           <div>
-            <Link href="/" className="inline-flex gap-0.5 mb-4">
+            <Link href="/" className="inline-flex gap-0.5 mb-5">
               <span className="font-display font-extrabold text-2xl tracking-tight text-foreground">ONADA</span>
-              <span className="font-display font-extrabold text-2xl tracking-tight text-primary ml-2">BY BEACH</span>
+              <span className="font-display font-extrabold text-2xl tracking-tight text-primary ml-2 animate-neon-pulse">BY BEACH</span>
             </Link>
-            <p className="text-xs text-muted-foreground leading-relaxed sm:max-w-[18rem] mt-3">
+            <p className="text-xs text-muted-foreground leading-relaxed sm:max-w-[18rem]">
               Discoteca & Club Nocturno en {BUSINESS.city}.<br />
               Cocktails · Shisha · Music
             </p>
+            <div className="flex items-center gap-3 mt-6">
+              <a href={BUSINESS.social.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all rounded-sm" aria-label="Instagram">
+                <Instagram className="w-3.5 h-3.5" />
+              </a>
+              <a href={BUSINESS.social.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center border border-border hover:border-primary text-muted-foreground hover:text-primary transition-all rounded-sm" aria-label="Facebook">
+                <Facebook className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -48,24 +61,16 @@ export function Footer() {
               Contacto
             </p>
             <div className="space-y-2.5 text-xs text-muted-foreground">
-              <a href={`tel:${BUSINESS.phone}`} className="block hover:text-primary transition-colors">
+              <a href={`tel:${BUSINESS.phone}`} className="block hover:text-primary transition-colors font-semibold text-foreground/80">
                 {BUSINESS.phoneDisplay}
               </a>
               <p>{BUSINESS.address}<br />{BUSINESS.city}, {BUSINESS.region}</p>
               <p className="pt-1">{BUSINESS.hours.days} · {BUSINESS.hours.opens} — {BUSINESS.hours.closes}</p>
             </div>
-            <div className="flex items-center gap-3 mt-6">
-              <a href={BUSINESS.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href={BUSINESS.social.facebook} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
-                <Facebook className="w-4 h-4" />
-              </a>
-            </div>
           </div>
         </div>
 
-        <div className="border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-border/50 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
             © {new Date().getFullYear()} {BUSINESS.name} · Todos los derechos reservados
           </p>
@@ -73,7 +78,7 @@ export function Footer() {
             Privacidad & Cookies
           </Link>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-beat" />
             Abierto esta semana
           </div>
         </div>
