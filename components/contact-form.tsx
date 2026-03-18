@@ -15,6 +15,8 @@ interface ContactFormProps {
     formSend: string
     formSent: string
     formNote: string
+    whatsappIntro: string
+    whatsappPhone: string
   }
 }
 
@@ -27,7 +29,7 @@ export function ContactForm({ t }: ContactFormProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const text = encodeURIComponent(
-      `Hola! Soy ${name}${phone ? `, mi teléfono es ${phone}` : ""}.\n\n${message}`
+      `${t.whatsappIntro} ${name}${phone ? `${t.whatsappPhone} ${phone}` : ""}.\n\n${message}`
     )
     window.open(`${BUSINESS.whatsapp}?text=${text}`, "_blank", "noopener,noreferrer")
     setSent(true)

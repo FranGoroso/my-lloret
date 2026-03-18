@@ -61,11 +61,13 @@ export const fr = {
     formMessagePlaceholder: 'Comment pouvons-nous vous aider ? Réservations, événements privés, informations...',
     formSend: 'Envoyer par WhatsApp', formSent: 'Ouverture de WhatsApp ! ✓',
     formNote: 'WhatsApp s\'ouvrira avec votre message prêt à envoyer.',
+    whatsappIntro: 'Bonjour ! Je suis', whatsappPhone: ', mon téléphone est',
   },
   jobs: {
     label: 'Rejoignez l\'équipe', line1: 'Voulez-vous travailler', line2: 'avec nous ?',
     description: 'Nous cherchons des personnes passionnées par l\'hôtellerie, la musique et les bonnes ambiances. Si vous souhaitez rejoindre l\'une des meilleures équipes de la Costa Brava, écrivez ou appelez-nous.',
     call: 'Appelez-nous', whatsapp: 'WhatsApp',
+    whatsappJobsText: 'Bonjour, je suis intéressé(e) par travailler chez',
   },
   marquee: {
     rowA: ['Cocktails Signature', 'Live DJs', 'Shisha Premium', 'Tables VIP', 'Costa Brava', 'Nuits Uniques'],

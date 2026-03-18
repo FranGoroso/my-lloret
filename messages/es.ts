@@ -61,11 +61,13 @@ export const es = {
     formMessagePlaceholder: '¿En qué podemos ayudarte? Reservas, eventos privados, información...',
     formSend: 'Enviar por WhatsApp', formSent: '¡Abriendo WhatsApp! ✓',
     formNote: 'Se abrirá WhatsApp con tu mensaje listo para enviar.',
+    whatsappIntro: 'Hola! Soy', whatsappPhone: ', mi teléfono es',
   },
   jobs: {
     label: 'Únete al equipo', line1: '¿Quieres trabajar', line2: 'con nosotros?',
     description: 'Buscamos personas apasionadas por la hostelería, la música y los buenos ambientes. Si quieres formar parte de uno de los mejores equipos de la Costa Brava, escríbenos o llámanos.',
     call: 'Llámanos', whatsapp: 'WhatsApp',
+    whatsappJobsText: 'Hola, me interesa trabajar en',
   },
   marquee: {
     rowA: ['Cocktails de Autor', 'Live DJs', 'Shisha Premium', 'Mesas VIP', 'Costa Brava', 'Noches Únicas'],

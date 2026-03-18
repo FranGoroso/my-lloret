@@ -59,7 +59,7 @@ export function Jobs() {
                   {t.jobs.call}
                 </a>
                 <a
-                  href={`${BUSINESS.whatsapp}?text=Hola%2C%20me%20interesa%20trabajar%20en%20${encodeURIComponent(BUSINESS.name)}`}
+                  href={`${BUSINESS.whatsapp}?text=${encodeURIComponent(`${t.jobs.whatsappJobsText} ${BUSINESS.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-disco-outline flex-1"

@@ -3,6 +3,7 @@ import { Syne } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CookieBanner } from '@/components/cookie-banner'
 import { BUSINESS } from '@/constants/business'
+import { cookies } from 'next/headers'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/language-context'
 
@@ -22,56 +23,97 @@ export const viewport: Viewport = {
   themeColor: '#1a2a3a',
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: `${BUSINESS.name} — Discoteca & Club Nocturno | Lloret de Mar`,
-    template: `%s | ${BUSINESS.name}`,
-  },
-  description: BUSINESS.description,
-  keywords: [
-    'discoteca lloret de mar',
-    'club nocturno costa brava',
-    'onada by beach',
-    'shisha lounge lloret',
-    'cocktails lloret de mar',
-    'djs costa brava',
-    'mesas vip lloret',
-    'fiesta lloret de mar',
-  ],
-  authors: [{ name: BUSINESS.name }],
-  creator: BUSINESS.name,
-  alternates: { canonical: '/' },
-  openGraph: {
-    type: 'website',
-    locale: 'es_ES',
-    url: siteUrl,
-    siteName: BUSINESS.name,
+type LocaleMeta = { title: string; description: string; ogLocale: string }
+
+const META: Record<string, LocaleMeta> = {
+  es: {
     title: `${BUSINESS.name} — Discoteca & Club Nocturno | Lloret de Mar`,
-    description: BUSINESS.description,
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: `${BUSINESS.name} — Discoteca en Lloret de Mar`,
-      },
-    ],
+    description: 'La discoteca de referencia en la Costa Brava. Cocktails de autor, shisha premium y los mejores DJs de la escena.',
+    ogLocale: 'es_ES',
   },
-  twitter: {
-    card: 'summary_large_image',
+  ca: {
+    title: `${BUSINESS.name} — Discoteca & Club Nocturn | Lloret de Mar`,
+    description: 'La discoteca de referència a la Costa Brava. Còctels d\'autor, shisha premium i els millors DJs de l\'escena.',
+    ogLocale: 'ca_ES',
+  },
+  en: {
+    title: `${BUSINESS.name} — Nightclub | Lloret de Mar`,
+    description: 'The reference nightclub on the Costa Brava. Signature cocktails, premium shisha and the best DJs on the scene.',
+    ogLocale: 'en_GB',
+  },
+  ru: {
+    title: `${BUSINESS.name} — Ночной Клуб | Льорет-де-Мар`,
+    description: 'Лучший ночной клуб Коста Бравы. Авторские коктейли, премиум кальян и лучшие диджеи сцены.',
+    ogLocale: 'ru_RU',
+  },
+  pt: {
     title: `${BUSINESS.name} — Discoteca | Lloret de Mar`,
-    description: 'La discoteca de referencia en la Costa Brava. Cocktails · Shisha · DJs.',
-    images: ['/og-image.jpg'],
+    description: 'A discoteca de referência na Costa Brava. Coquetéis autorais, shisha premium e os melhores DJs da cena.',
+    ogLocale: 'pt_BR',
   },
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+  fr: {
+    title: `${BUSINESS.name} — Discothèque | Lloret de Mar`,
+    description: 'La discothèque de référence sur la Costa Brava. Cocktails signature, shisha premium et les meilleurs DJs de la scène.',
+    ogLocale: 'fr_FR',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies()
+  const locale = cookieStore.get('onada-locale')?.value ?? 'es'
+  const m = META[locale] ?? META.es
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: m.title,
+      template: `%s | ${BUSINESS.name}`,
+    },
+    description: m.description,
+    keywords: [
+      'discoteca lloret de mar',
+      'club nocturno costa brava',
+      'onada by beach',
+      'shisha lounge lloret',
+      'cocktails lloret de mar',
+      'djs costa brava',
+      'mesas vip lloret',
+      'fiesta lloret de mar',
     ],
-    apple: '/apple-icon.png',
-  },
+    authors: [{ name: BUSINESS.name }],
+    creator: BUSINESS.name,
+    alternates: { canonical: '/' },
+    openGraph: {
+      type: 'website',
+      locale: m.ogLocale,
+      url: siteUrl,
+      siteName: BUSINESS.name,
+      title: m.title,
+      description: m.description,
+      images: [
+        {
+          url: '/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: `${BUSINESS.name} — Lloret de Mar`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: m.title,
+      description: m.description,
+      images: ['/og-image.jpg'],
+    },
+    icons: {
+      icon: [
+        { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+        { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+        { url: '/icon.svg', type: 'image/svg+xml' },
+      ],
+      apple: '/apple-icon.png',
+    },
+  }
 }
 
 const jsonLd = {
@@ -107,11 +149,14 @@ const jsonLd = {
   sameAs: [BUSINESS.social.instagram, BUSINESS.social.facebook],
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies()
+  const locale = cookieStore.get('onada-locale')?.value ?? 'es'
+
   return (
-    <html lang="es" className={syne.variable}>
+    <html lang={locale} className={syne.variable}>
       <body className="font-sans antialiased">
         {/* Skip to content — accesibilidad */}
         <a
