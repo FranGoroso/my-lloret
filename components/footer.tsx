@@ -74,9 +74,15 @@ export function Footer() {
           <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
             © {new Date().getFullYear()} {BUSINESS.name} · Todos los derechos reservados
           </p>
-          <Link href="/privacidad" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
-            Privacidad & Cookies
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/aviso-legal" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
+              Aviso Legal
+            </Link>
+            <span className="text-border text-xs">·</span>
+            <Link href="/privacidad" className="text-[10px] text-muted-foreground hover:text-primary uppercase tracking-widest transition-colors">
+              Privacidad & Cookies
+            </Link>
+          </div>
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-beat" />
             Abierto esta semana
