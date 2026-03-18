@@ -18,6 +18,7 @@ export function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-14 md:gap-20">
+          {/* Left — contact info + form */}
           <div className="space-y-10">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3 flex items-center gap-2">
@@ -72,18 +73,24 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-0 overflow-hidden border border-border">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.5!2d2.8447!3d41.6994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1a7c0f8a8d0d%3A0x0!2sC%2F%20Josep%20de%20Togores%2C%207%2C%20Lloret%20de%20Mar!5e0!3m2!1ses!2ses!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "invert(92%) hue-rotate(180deg) saturate(0.4) brightness(0.9)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${BUSINESS.name} — Ubicación en ${BUSINESS.city}`}
-              className="absolute inset-0 h-full"
-            />
+          {/* Right — map */}
+          <div className="flex flex-col gap-4">
+            <div className="relative h-[300px] sm:h-[380px] md:h-full md:min-h-[500px] overflow-hidden border border-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.5!2d2.8447!3d41.6994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1a7c0f8a8d0d%3A0x0!2sC%2F%20Josep%20de%20Togores%2C%207%2C%20Lloret%20de%20Mar!5e0!3m2!1ses!2ses!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: "invert(88%) hue-rotate(180deg) saturate(0.5) brightness(0.85) contrast(0.9)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={`${BUSINESS.name} — Ubicación en ${BUSINESS.city}`}
+                className="absolute inset-0 h-full"
+              />
+            </div>
+            <p className="text-xs text-muted-foreground text-center tracking-wide">
+              {BUSINESS.address}, {BUSINESS.city}
+            </p>
           </div>
         </div>
       </div>

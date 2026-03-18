@@ -77,17 +77,17 @@ export function Hero() {
       </div>
 
       {/* Info bar */}
-      <div className="relative z-10 bg-background/60 backdrop-blur-sm border-t border-border/30">
+      <div className="relative z-10 bg-background/70 backdrop-blur-md border-t border-border/30">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="flex flex-wrap items-center gap-4 md:gap-12 py-3 md:py-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3 md:gap-0 md:flex md:items-center md:gap-12 py-4 md:py-4">
             {[
               ["Horario",   BUSINESS.hours.display],
-              ["Dirección", BUSINESS.address],
               ["Teléfono",  BUSINESS.phoneDisplay],
+              ["Dirección", BUSINESS.address],
             ].map(([label, value]) => (
-              <div key={label} className="flex items-center gap-2 md:gap-3">
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-primary/80 font-semibold shrink-0">{label}</span>
-                <span className="text-xs md:text-sm tracking-wide text-foreground/80">{value}</span>
+              <div key={label} className={`flex flex-col md:flex-row md:items-center gap-0.5 md:gap-3 ${label === "Dirección" ? "col-span-2 md:col-span-1" : ""}`}>
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-primary/80 font-bold shrink-0">{label}</span>
+                <span className="text-[11px] md:text-sm tracking-wide text-foreground/80">{value}</span>
               </div>
             ))}
           </div>

@@ -5,8 +5,26 @@ import { events } from "@/data/events"
 
 export function Events() {
   return (
-    <section id="eventos" className="bg-card py-24 md:py-36">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <section id="eventos" className="relative bg-card py-24 md:py-36 overflow-hidden">
+      {/* Dot pattern background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: "radial-gradient(circle, oklch(0.68 0.18 215) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 60% at 85% 20%, oklch(0.68 0.18 215 / 0.08) 0%, transparent 55%)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
