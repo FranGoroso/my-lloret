@@ -9,14 +9,16 @@ export const metadata: Metadata = {
 }
 
 // ─────────────────────────────────────────────────────────────────
-//  ⚠️  RELLENA ESTOS DATOS ANTES DE PUBLICAR
+//  ⚠️  Pendiente: email y datos registrales (Registro Mercantil)
 // -----------------------------------------------------------------
 const LEGAL = {
-  cif:          "B-XXXXXXXX",                    // NIF/CIF del titular
-  email:        "info@onadabybeach.com",          // Email de contacto
-  forma:        "Sociedad de Responsabilidad Limitada (S.L.)", // o Autónomo, S.A., etc.
-  registro:     "Registro Mercantil de Girona",   // Registro y datos de inscripción
-  inscripcion:  "Tomo X, Folio X, Hoja GI-XXXXX", // Datos registrales (solo si procede)
+  razonSocial:  "MYLLORET2025 SL",
+  nif:          "B22623052",
+  forma:        "Sociedad Limitada (S.L.)",
+  cnae:         "9031 — Gestión de instalaciones para actividades artísticas y artes escénicas",
+  objeto:       "La explotación de negocios de salas de baile y discotecas, y espectáculos en salas y locales.",
+  email:        "info@onadabybeach.com",          // ⚠️ Actualiza con el email real
+  registro:     "Registro Mercantil de Girona",   // ⚠️ Añade Tomo, Folio y Hoja cuando dispongas de ellos
 }
 // ─────────────────────────────────────────────────────────────────
 
@@ -41,17 +43,20 @@ export default function AvisoLegalPage() {
           <section className="space-y-4">
             <h2 className="font-display font-bold uppercase text-lg text-foreground tracking-tight">1. Datos identificativos del titular</h2>
             <ul className="space-y-2">
-              <li><strong className="text-foreground">Denominación social:</strong> {BUSINESS.name}</li>
+              <li><strong className="text-foreground">Razón social:</strong> {LEGAL.razonSocial}</li>
+              <li><strong className="text-foreground">Nombre comercial:</strong> {BUSINESS.name}</li>
               <li><strong className="text-foreground">Forma jurídica:</strong> {LEGAL.forma}</li>
-              <li><strong className="text-foreground">NIF/CIF:</strong> {LEGAL.cif}</li>
-              <li><strong className="text-foreground">Domicilio social:</strong> {BUSINESS.address}, {BUSINESS.postalCode} {BUSINESS.city}, {BUSINESS.region}</li>
+              <li><strong className="text-foreground">NIF:</strong> {LEGAL.nif}</li>
+              <li><strong className="text-foreground">Domicilio social:</strong> {BUSINESS.address}, {BUSINESS.postalCode} {BUSINESS.city}, {BUSINESS.region}, España</li>
+              <li><strong className="text-foreground">Actividad (CNAE):</strong> {LEGAL.cnae}</li>
+              <li><strong className="text-foreground">Objeto social:</strong> {LEGAL.objeto}</li>
               <li><strong className="text-foreground">Teléfono:</strong>{" "}
                 <a href={`tel:${BUSINESS.phone}`} className="text-primary hover:underline">{BUSINESS.phoneDisplay}</a>
               </li>
               <li><strong className="text-foreground">Correo electrónico:</strong>{" "}
                 <a href={`mailto:${LEGAL.email}`} className="text-primary hover:underline">{LEGAL.email}</a>
               </li>
-              <li><strong className="text-foreground">Datos registrales:</strong> {LEGAL.registro} — {LEGAL.inscripcion}</li>
+              <li><strong className="text-foreground">Datos registrales:</strong> {LEGAL.registro}</li>
             </ul>
           </section>
 
